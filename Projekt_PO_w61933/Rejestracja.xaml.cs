@@ -25,15 +25,25 @@ namespace Projekt_PO_w61933
         {
             InitializeComponent();
         }
+        private void restartRegisterWindow()
+        {
+            this.DialogResult = true;
+            var dialog = new Rejestracja();
+            dialog.tbName.Text = this.tbName.Text;
+            dialog.tbSurname.Text = this.tbSurname.Text;
+            dialog.tbUserName.Text = this.tbUserName.Text;
+            dialog.tbPhone.Text = this.tbPhone.Text;
+            dialog.tbEmail.Text = this.tbEmail.Text;
 
+            dialog.ShowDialog();
+        }
         private void button_Click(object sender, RoutedEventArgs e)
         {
             if (tbUserName.Text == "" || pbNewPassword.Password == "" || pbCheckNewPassword.Password == "")
             {
                 MessageBox.Show("Uzupełnij dane");
-                this.DialogResult = true;
-                var dialog = new Rejestracja();
-                dialog.ShowDialog();
+                restartRegisterWindow();
+                
             }
             else
             {
@@ -48,9 +58,7 @@ namespace Projekt_PO_w61933
                     {
                         MessageBox.Show("Istnieje taka nazwa użytkownika");
 
-                        this.DialogResult = true;
-                        var dialog = new Rejestracja();
-                        dialog.ShowDialog();
+                        restartRegisterWindow();
 
 
                     }
@@ -59,31 +67,33 @@ namespace Projekt_PO_w61933
                 if (pbNewPassword.Password.Contains(" ") == true || tbUserName.Text.Contains(" ") == true)
                 {
                     MessageBox.Show("Nazwa użytkownika i hasło nie może zawierać spacji");
-                    this.DialogResult = true;
-                    var dialog = new Rejestracja();
-                    dialog.ShowDialog();
+                    restartRegisterWindow();
                 }
                 else
                 {
                     if (pbNewPassword.Password != pbCheckNewPassword.Password)
                     {
                         MessageBox.Show("Hasła nie są takie same");
-                        this.DialogResult = true;
-                        var dialog = new Rejestracja();
-                        dialog.ShowDialog();
+                        restartRegisterWindow();
                     }
                     else
                     {
                         if (!Regex.IsMatch(tbEmail.Text, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$")
                             || !Regex.IsMatch(tbName.Text, @"^[A-Z][a-zA-Z]*$")
                             || !Regex.IsMatch(tbSurname.Text, @"^[A-Z][a-zA-Z]*$")
-                            )
+                            || tbPhone.Text.Length != 9 || ! double.TryParse( tbPhone.Text, out double result))
                         {
                             MessageBox.Show("podano błędne dane");
+                            restartRegisterWindow();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Poprawne dane do rejestracji");
+                            this.DialogResult = true;
                         }
                     }
                 }
-                this.DialogResult = true;
+                
 
             }
         }

@@ -10,9 +10,9 @@ namespace Projekt_PO_w61933
     {
         protected string userName;
         protected string password;
-        public string UserName
+        public string returnUserName()
         {
-            get => userName;
+            return userName;
         }
         public void changePassword(bool correctAnswer, string newPassword)
         {
@@ -21,10 +21,15 @@ namespace Projekt_PO_w61933
 
             }
         }
+        public User()
+        {
+
+        }
         public User(string userName, string password)
         {
             this.userName = userName;
             this.password = password;
         }
     }
+    
 }

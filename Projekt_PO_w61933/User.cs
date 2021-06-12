@@ -15,9 +15,9 @@ namespace Projekt_PO_w61933
         {
             return userName;
         }
-        public void changePassword(bool correctAnswer, string newPassword)
+        public void changePassword(bool correctAnswear, string newPassword)
         {
-            if(correctAnswer== true)
+            if(correctAnswear== true)
             {
 
             }

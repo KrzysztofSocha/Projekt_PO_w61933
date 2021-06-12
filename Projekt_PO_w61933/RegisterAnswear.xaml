@@ -1,0 +1,23 @@
+﻿<Window x:Class="Projekt_PO_w61933.RegisterAnswear"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projekt_PO_w61933"
+        mc:Ignorable="d"
+        Title="RegisterAnswear" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="97*"/>
+            <ColumnDefinition Width="703*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="label" Content="Podaj pytanie, które umożliwi identyfikacje Ciebie, na wypadek  zapomnienia hasła" HorizontalAlignment="Left" Margin="21,65,0,0" VerticalAlignment="Top" FontSize="16" Grid.Column="1"/>
+        <Label x:Name="label1" Content="Pytanie:" HorizontalAlignment="Left" Margin="29,120,0,0" VerticalAlignment="Top" FontSize="14" Grid.Column="1"/>
+        <TextBox x:Name="tbQuestion" Grid.Column="1" HorizontalAlignment="Left" Margin="92,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="500" Height="32" FontSize="14"/>
+        <Label x:Name="label2" Content="Podaj odpowiedź" Grid.Column="1" HorizontalAlignment="Left" Margin="29,173,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label x:Name="label3" Content="Odpowiedź:" Grid.Column="1" HorizontalAlignment="Left" Margin="29,252,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBox x:Name="tbAnswear" Grid.Column="1" HorizontalAlignment="Left" Margin="118,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" Height="32" FontSize="14"/>
+        <Button x:Name="bConfrim" Content="Zatwierdź dane" Grid.Column="1" HorizontalAlignment="Center" Margin="0,353,0,0" VerticalAlignment="Top" Width="95" Height="26" Click="bConfrim_Click"/>
+
+    </Grid>
+</Window>

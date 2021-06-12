@@ -35,13 +35,22 @@ namespace Projekt_PO_w61933
                 StreamReader  sr = File.OpenText("login.txt");
                 string line;
                 bool correctLogin = false;
+                int count = 0;
                 while((line = sr.ReadLine()) != null)
                 {
+                    count++;
                     if(line == fullLogin)
                     {
+                        string client = File.ReadLines("Client.txt").Skip(count - 1).Take(1).First();
                         MessageBox.Show("Poprawnie zalogowano");
                         correctLogin = true;
                         sr.Close();
+                        this.Hide();
+
+                        var dialog = new UserInterface();
+                        dialog.lWelcome.Content = "Witaj " + client;
+                        dialog.ShowDialog();
+
                         break;
                     }
                     
@@ -62,10 +71,8 @@ namespace Projekt_PO_w61933
         private void bRegister_Click(object sender, RoutedEventArgs e)
         {
             var dialog = new Rejestracja();
-            if (dialog.ShowDialog() == true)
-            {
-               
-            }
+            dialog.ShowDialog();
+            
         }
     }
 }

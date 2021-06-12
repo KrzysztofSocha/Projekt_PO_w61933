@@ -80,8 +80,8 @@ namespace Projekt_PO_w61933
                     else
                     {
                         if (!Regex.IsMatch(tbEmail.Text, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$")
-                            || !Regex.IsMatch(tbName.Text, @"^[A-Z][a-zA-Z]*$")
-                            || !Regex.IsMatch(tbSurname.Text, @"^[A-Z][a-zA-Z]*$")
+                            || !Regex.IsMatch(tbName.Text, @"^\p{Lu}\p{Ll}*$")
+                            || !Regex.IsMatch(tbSurname.Text, @"^\p{Lu}\p{Ll}*$")
                             || tbPhone.Text.Length != 9 || ! double.TryParse( tbPhone.Text, out double result))
                         {
                             MessageBox.Show("podano błędne dane");
@@ -93,6 +93,8 @@ namespace Projekt_PO_w61933
                             string id = Convert.ToString(count + 1);
                             Client client= new Client(tbUserName.Text, pbNewPassword.Password,id, tbName.Text,tbSurname.Text,tbPhone.Text,tbEmail.Text);
                             this.DialogResult = true;
+                            var dialog = new RegisterAnswear();
+                            dialog.ShowDialog();
                         }
                     }
                 }

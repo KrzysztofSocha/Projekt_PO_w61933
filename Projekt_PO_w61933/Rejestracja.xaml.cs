@@ -62,8 +62,9 @@ namespace Projekt_PO_w61933
 
 
                     }
-
+                    
                 }
+                sr.Close();
                 if (pbNewPassword.Password.Contains(" ") == true || tbUserName.Text.Contains(" ") == true)
                 {
                     MessageBox.Show("Nazwa użytkownika i hasło nie może zawierać spacji");
@@ -88,7 +89,9 @@ namespace Projekt_PO_w61933
                         }
                         else
                         {
-                            MessageBox.Show("Poprawne dane do rejestracji");
+                            MessageBox.Show("Rejestracja przebiegła pomyślnie");
+                            string id = Convert.ToString(count + 1);
+                            Client client= new Client(tbUserName.Text, pbNewPassword.Password,id, tbName.Text,tbSurname.Text,tbPhone.Text,tbEmail.Text);
                             this.DialogResult = true;
                         }
                     }

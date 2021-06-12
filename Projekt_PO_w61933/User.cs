@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,6 +30,11 @@ namespace Projekt_PO_w61933
         {
             this.userName = userName;
             this.password = password;
+            StreamWriter sw;
+            sw = new StreamWriter("Login.txt", true);
+            
+            sw.WriteLine(this.userName + " " + this.password);
+            sw.Close();
         }
     }
     

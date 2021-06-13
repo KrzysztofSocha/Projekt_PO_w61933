@@ -92,6 +92,7 @@ namespace Projekt_PO_w61933
                             MessageBox.Show("Rejestracja przebiegła pomyślnie");
                             string id = Convert.ToString(count + 1);
                             Client client= new Client(tbUserName.Text, pbNewPassword.Password,id, tbName.Text,tbSurname.Text,tbPhone.Text,tbEmail.Text);
+                            AccountBalance accountBalance = new AccountBalance(count+1);
                             this.DialogResult = true;
                             var dialog = new RegisterAnswear();
                             dialog.ShowDialog();

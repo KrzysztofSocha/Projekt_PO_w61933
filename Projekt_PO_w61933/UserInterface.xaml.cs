@@ -19,9 +19,11 @@ namespace Projekt_PO_w61933
     /// </summary>
     public partial class UserInterface : Window
     {
+        public int id;
         public UserInterface()
         {
             InitializeComponent();
         }
+        
     }
 }

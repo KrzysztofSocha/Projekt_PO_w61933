@@ -41,14 +41,25 @@ namespace Projekt_PO_w61933
                     count++;
                     if(line == fullLogin)
                     {
-                        string client = File.ReadLines("Client.txt").Skip(count - 1).Take(1).First();
                         MessageBox.Show("Poprawnie zalogowano");
+                        string client = File.ReadLines("Client.txt").Skip(count - 1).Take(1).First();                       
                         correctLogin = true;
                         sr.Close();
+                        string[] wordsClient = client.Split(' ');
+                        string balance = File.ReadLines("AccountBalance.txt").Skip(count - 1).Take(1).First();
+                        string[] wordsBalance = balance.Split(' ');
                         this.Hide();
-
+                       
                         var dialog = new UserInterface();
-                        dialog.lWelcome.Content = "Witaj " + client;
+                        
+
+                        dialog.id = count;
+                        dialog.lWelcome.Content = "Witaj " + wordsClient[3] +",";
+                        dialog.lNumber.Content = "Twój numer " + wordsClient[7];
+                        dialog.lBalance.Content = wordsBalance[3] + " PLN";
+                        dialog.lInternet.Content = wordsBalance[5] + " GB";
+                        dialog.lInternetEU.Content = wordsBalance[7] + " GB";
+                        dialog.lMinutes.Content = wordsBalance[9];
                         dialog.ShowDialog();
 
                         break;

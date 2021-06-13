@@ -7,7 +7,16 @@
         mc:Ignorable="d"
         Title="UserInterface" Height="450" Width="800">
     <Grid>
-        <Label x:Name="lWelcome" Content="" HorizontalAlignment="Left" Margin="86,47,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lWelcome" Content="Witaj" HorizontalAlignment="Left" Margin="86,47,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <Label x:Name="lBalance" Content="Balance" HorizontalAlignment="Left" Margin="196,170,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label x:Name="lInternet" Content="Internet" HorizontalAlignment="Left" Margin="196,217,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label x:Name="lMinutes" Content="Minutes" HorizontalAlignment="Left" Margin="196,264,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label x:Name="lNumber" Content="Twój numer" HorizontalAlignment="Left" Margin="86,122,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label x:Name="lInternetEU" Content="InternetEU" HorizontalAlignment="Left" Margin="196,311,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label x:Name="label" Content="Stan konta:" HorizontalAlignment="Left" Margin="88,170,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label x:Name="label_Copy" Content="Internet:" HorizontalAlignment="Left" Margin="86,217,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label x:Name="label_Copy1" Content="Internet w UE:" HorizontalAlignment="Left" Margin="78,311,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label x:Name="label_Copy2" Content="Minuty:" HorizontalAlignment="Left" Margin="89,264,0,0" VerticalAlignment="Top" FontSize="16"/>
 
     </Grid>
 </Window>

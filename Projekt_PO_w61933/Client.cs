@@ -26,7 +26,7 @@ namespace Projekt_PO_w61933
             this.email = email;
             StreamWriter sw;
             sw = new StreamWriter("Client.txt", true);
-            sw.WriteLine("ID: "+this.id+", Name: "+this.name+", Surname: "+this.surname+", Phone: "+this.phone+", Email: "+this.email);
+            sw.WriteLine("ID: "+this.id+" Name: "+this.name+" Surname: "+this.surname+" Phone: "+this.phone+" Email: "+this.email);
             sw.Close();
         }
     }

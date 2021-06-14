@@ -24,6 +24,13 @@ namespace Projekt_PO_w61933
         {
             InitializeComponent();
         }
-        
+
+        private void bTopUpAccount_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = true;
+            var dialog = new PayWindow();
+            dialog.id = this.id;
+            dialog.ShowDialog();
+        }
     }
 }

@@ -27,15 +27,9 @@ namespace Projekt_PO_w61933
         }
         private void restartRegisterWindow()
         {
-            this.DialogResult = true;
-            var dialog = new Rejestracja();
-            dialog.tbName.Text = this.tbName.Text;
-            dialog.tbSurname.Text = this.tbSurname.Text;
-            dialog.tbUserName.Text = this.tbUserName.Text;
-            dialog.tbPhone.Text = this.tbPhone.Text;
-            dialog.tbEmail.Text = this.tbEmail.Text;
 
-            dialog.ShowDialog();
+            pbNewPassword.Password = "";
+            pbCheckNewPassword.Password = "";
         }
         private void button_Click(object sender, RoutedEventArgs e)
         {

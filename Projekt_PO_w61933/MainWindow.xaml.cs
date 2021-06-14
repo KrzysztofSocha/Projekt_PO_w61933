@@ -25,7 +25,31 @@ namespace Projekt_PO_w61933
         {
             InitializeComponent();
         }
+        public void showUserInterface( int count)
+        {
+            string client = File.ReadLines("Client.txt").Skip(count - 1).Take(1).First();
+            
+           
+            string[] wordsClient = client.Split(' ');
+            string balance = File.ReadLines("AccountBalance.txt").Skip(count - 1).Take(1).First();
+            
+            string[] wordsBalance = balance.Split(' ');
 
+
+            
+
+            var dialog = new UserInterface();
+
+
+            dialog.id = count;
+            dialog.lWelcome.Content = "Witaj " + wordsClient[3] + ",";
+            dialog.lNumber.Content = "Twój numer " + wordsClient[7];
+            dialog.lBalance.Content = wordsBalance[3] + " PLN";
+            dialog.lInternet.Content = wordsBalance[5] + " GB";
+            dialog.lInternetEU.Content = wordsBalance[7] + " GB";
+            dialog.lMinutes.Content = wordsBalance[9];
+            dialog.ShowDialog();
+        }
         private void bLogin_Click(object sender, RoutedEventArgs e)
         {
             if(tbUserName.Text != "" && pbPassword.Password != "")
@@ -42,26 +66,13 @@ namespace Projekt_PO_w61933
                     if(line == fullLogin)
                     {
                         MessageBox.Show("Poprawnie zalogowano");
-                        string client = File.ReadLines("Client.txt").Skip(count - 1).Take(1).First();                       
+                                              
                         correctLogin = true;
                         sr.Close();
-                        string[] wordsClient = client.Split(' ');
-                        string balance = File.ReadLines("AccountBalance.txt").Skip(count - 1).Take(1).First();
-                        string[] wordsBalance = balance.Split(' ');
                         this.Hide();
-                       
-                        var dialog = new UserInterface();
-                        
-
-                        dialog.id = count;
-                        dialog.lWelcome.Content = "Witaj " + wordsClient[3] +",";
-                        dialog.lNumber.Content = "Twój numer " + wordsClient[7];
-                        dialog.lBalance.Content = wordsBalance[3] + " PLN";
-                        dialog.lInternet.Content = wordsBalance[5] + " GB";
-                        dialog.lInternetEU.Content = wordsBalance[7] + " GB";
-                        dialog.lMinutes.Content = wordsBalance[9];
-                        dialog.ShowDialog();
-
+                        showUserInterface(count);
+                                            
+                                               
                         break;
                     }
                     

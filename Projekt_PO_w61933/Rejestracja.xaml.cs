@@ -33,6 +33,22 @@ namespace Projekt_PO_w61933
         }
         private void button_Click(object sender, RoutedEventArgs e)
         {
+            StreamReader srPhone = File.OpenText("Client.txt");
+
+            string phoneLine;
+            bool checkPhoneResult = false;
+            while ((phoneLine = srPhone.ReadLine()) != null)
+            {
+
+                string[] wordsClient = phoneLine.Split(' ');
+                if (wordsClient[7] == tbPhone.Text)
+                {
+                    checkPhoneResult = true;
+                    break;
+                }
+
+            }
+            srPhone.Close();
             if (tbUserName.Text == "" || pbNewPassword.Password == "" || pbCheckNewPassword.Password == "")
             {
                 MessageBox.Show("Uzupełnij dane");
@@ -76,9 +92,15 @@ namespace Projekt_PO_w61933
                         if (!Regex.IsMatch(tbEmail.Text, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$")
                             || !Regex.IsMatch(tbName.Text, @"^\p{Lu}\p{Ll}*$")
                             || !Regex.IsMatch(tbSurname.Text, @"^\p{Lu}\p{Ll}*$")
-                            || tbPhone.Text.Length != 9 || ! double.TryParse( tbPhone.Text, out double result))
+                            || tbPhone.Text.Length != 9 || !double.TryParse(tbPhone.Text, out double result))
                         {
                             MessageBox.Show("podano błędne dane");
+                            restartRegisterWindow();
+                        }
+                       
+                        else if (checkPhoneResult==true)
+                        {
+                            MessageBox.Show("Ten numer jest juz zarejstrowany");
                             restartRegisterWindow();
                         }
                         else

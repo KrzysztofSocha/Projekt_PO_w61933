@@ -40,7 +40,7 @@ namespace Projekt_PO_w61933
                     MessageBox.Show("Poprawnie doładowano konto");
                     string balance = File.ReadLines("AccountBalance.txt").Skip(id - 1).Take(1).First();
                     AccountBalance accountBalance = new AccountBalance(balance);
-                    accountBalance.topUpAccount(Convert.ToDouble(tbAmount.Text));
+                    accountBalance.changeBalance(Convert.ToDouble(tbAmount.Text));
                     this.DialogResult = true;
                     MainWindow mainWindow = new MainWindow();
                     mainWindow.showUserInterface(id);
@@ -51,10 +51,13 @@ namespace Projekt_PO_w61933
                 }
                 else if (rbTransfer.IsChecked == true && bankCheck == true )
                 {
+                    
                     MessageBox.Show("Poprawnie doładowano konto");
                     string balance = File.ReadLines("AccountBalance.txt").Skip(id - 1).Take(1).First();
                     AccountBalance accountBalance = new AccountBalance(balance);
-                    accountBalance.topUpAccount(Convert.ToDouble(tbAmount.Text));
+                    accountBalance.changeBalance(Convert.ToDouble(tbAmount.Text));
+                    
+                    
                     this.DialogResult = true;
                     MainWindow mainWindow = new MainWindow();
                     mainWindow.showUserInterface(id);
@@ -123,6 +126,14 @@ namespace Projekt_PO_w61933
             label1.Visibility = Visibility.Visible;
             bankCheck = true;
 
+        }
+
+        private void BCancel_Click(object sender, RoutedEventArgs e)
+        {
+           
+            this.DialogResult = true;
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.showUserInterface(id);
         }
     }
 }

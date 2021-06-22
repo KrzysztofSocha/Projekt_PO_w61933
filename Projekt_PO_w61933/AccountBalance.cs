@@ -9,23 +9,82 @@ namespace Projekt_PO_w61933
 {
     class AccountBalance
     {
-        private int internet;
-        private double balance;
-        private int internetEU;
-        private string minutes;
-        private int id;
-        public void topUpAccount(double amount )
+        protected int internet;
+        public double balance;
+        protected int internetEU;
+        protected string minutes;
+        protected int id;
+        public void changeBalance(double amount)
         {
             double oldBalance = this.balance;
+           
             this.balance += amount;
-            string balance = File.ReadLines("AccountBalance.txt").Skip(this.id - 1).Take(1).First();
-            string oldBalanceText = balance;
-            balance = balance.Replace("Balance: " + oldBalance, "Balance: " + this.balance);
+            
+            
+            string client = File.ReadLines("AccountBalance.txt").Skip(this.id - 1).Take(1).First();
+            string oldBalanceText = client;
+            client = client.Replace("Balance: " + oldBalance, "Balance: " + this.balance);
             string balancetxt = File.ReadAllText("AccountBalance.txt");
-            balancetxt = balancetxt.Replace(oldBalanceText, balance);
+            balancetxt = balancetxt.Replace(oldBalanceText, client);
             File.WriteAllText("AccountBalance.txt", balancetxt);
         }
-        
+        public void topUpInternet(int transferInternet)
+        {
+            int oldInternet = this.internet;
+            this.internet += transferInternet;
+            string client = File.ReadLines("AccountBalance.txt").Skip(this.id - 1).Take(1).First();
+            string oldInternetText = client;
+            client = client.Replace("Internet: " + oldInternet, "Internet: " + this.internet);
+            string balancetxt = File.ReadAllText("AccountBalance.txt");
+            balancetxt = balancetxt.Replace(oldInternetText, client);
+            File.WriteAllText("AccountBalance.txt", balancetxt);
+        }
+        public void topUpInternetEU(int transferInternet)
+        {
+            int oldInternet = this.internetEU;
+            this.internetEU += transferInternet;
+            string client = File.ReadLines("AccountBalance.txt").Skip(this.id - 1).Take(1).First();
+            string oldInternetText = client;
+            client = client.Replace("InternetEU: " + oldInternet, "InternetEU: " + this.internetEU);
+            string balancetxt = File.ReadAllText("AccountBalance.txt");
+            balancetxt = balancetxt.Replace(oldInternetText, client);
+            File.WriteAllText("AccountBalance.txt", balancetxt);
+        }
+        public void topUpMinutes(string transferMinutes)
+        {
+            //sprawdzenie czy liczbowe minuty czy nieskończone 
+            if(int.TryParse(transferMinutes, out int result)&& int.TryParse(this.minutes, out int result1))
+            {
+                string oldMinutes = this.minutes;
+                int minutes = Convert.ToInt32(this.minutes);
+                int tMinutes = Convert.ToInt32(transferMinutes);
+                minutes += tMinutes;
+                string client = File.ReadLines("AccountBalance.txt").Skip(this.id - 1).Take(1).First();
+                string oldMinutesText = client;
+                client = client.Replace("Minutes: " + oldMinutes, "Minutes: " + this.minutes);
+                string minutestxt = File.ReadAllText("AccountBalance.txt");
+                minutestxt = minutestxt.Replace(oldMinutesText, client);
+                File.WriteAllText("AccountBalance.txt", minutestxt);
+            }
+            else if (!int.TryParse(transferMinutes, out int result2)|| !int.TryParse(this.minutes, out int result3))
+            {
+                string oldMinutes = this.minutes;
+
+                this.minutes = transferMinutes;
+                string client = File.ReadLines("AccountBalance.txt").Skip(this.id - 1).Take(1).First();
+                string oldMinutesText = client;
+                client = client.Replace("Minutes: " + oldMinutes, "Minutes: " + this.minutes);
+                string minutestxt = File.ReadAllText("AccountBalance.txt");
+                minutestxt = minutestxt.Replace(oldMinutesText, client);
+                File.WriteAllText("AccountBalance.txt", minutestxt);
+            }
+            
+        }
+
+        public AccountBalance()
+        {
+
+        }
         public AccountBalance(int id)
         {
             this.balance = 0.0;
@@ -50,5 +109,6 @@ namespace Projekt_PO_w61933
             this.internetEU = Convert.ToInt32(wordsBalance[7]);
             this.minutes = wordsBalance[9];
         }
+        
     }
 }

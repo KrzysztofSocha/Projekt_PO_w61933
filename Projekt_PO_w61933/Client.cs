@@ -14,8 +14,29 @@ namespace Projekt_PO_w61933
         public string phone;
         public string email;
         public string id;
+        public bool checkPhone()
+        {
+            StreamReader sr = File.OpenText("Client.txt");
+            string line;
 
+            bool checkResult = false;
+            while ((line = sr.ReadLine()) != null)
+            {
 
+                string[] wordsClient = line.Split(' ');
+                if (wordsClient[7] == this.phone)
+                {
+                    checkResult = true;
+                }
+
+            }
+            sr.Close();
+            return checkResult;
+        }
+        public Client(string phone)
+        {
+            this.phone = phone;
+        }
         public Client(string userName, string password, string id, string name, string surname, string phone, string email)
             :base( userName, password)
         {

@@ -13,6 +13,7 @@ namespace Projekt_PO_w61933
         public static readonly Package internet5GB = new Package(15.0, "internet5GB", "0", 5, 0);
         public static readonly Package internet2GB = new Package(6.0, "internet2GB", "0", 2, 0);
         public static readonly Package minutes100 = new Package(20.0, "100Minut", "100", 0, 0);
+        public static readonly Package soloM = new Package(25.0, "FormułaSoloM", "nielimitowane", 10, 3);
         public bool addPackage(string balance)
         {
             
@@ -27,11 +28,18 @@ namespace Projekt_PO_w61933
                 accountBalance.changeBalance(this.price * -1);
 
 
-
-                if (Convert.ToInt32(this.minutes) != 0)
+                if(this.minutes.Length > 3)
                 {
                     accountBalance.topUpMinutes(this.minutes);
                 }
+                else
+                {
+                    if (Convert.ToInt32(this.minutes) != 0)
+                    {
+                        accountBalance.topUpMinutes(this.minutes);
+                    }
+                }
+                
                 if (this.internet != 0)
                 {
 

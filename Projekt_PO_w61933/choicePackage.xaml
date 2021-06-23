@@ -8,10 +8,11 @@
         Title="choicePackage" Height="450" Width="800">
     <Grid>
         <Label x:Name="label" Content="Wybierz pakiet" HorizontalAlignment="Left" Margin="53,42,0,0" VerticalAlignment="Top" Width="217" FontSize="20"/>
-        <RadioButton x:Name="rbInterenet5GB" Content="Internet 5GB 15zł" HorizontalAlignment="Left" Margin="86,124,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <RadioButton x:Name="rbInterenet5GB" Content="Internet 5GB - 15zł" HorizontalAlignment="Left" Margin="86,124,0,0" VerticalAlignment="Top" FontSize="14"/>
         <Button x:Name="bConfrim" Content="Zatwierdź wybór" HorizontalAlignment="Left" Margin="86,292,0,0" VerticalAlignment="Top" Height="30" Width="94" Click="bConfrim_Click"/>
-        <Button x:Name="BExit" Content="Wyjdź" HorizontalAlignment="Left" Margin="282,292,0,0" VerticalAlignment="Top" Height="25" Width="90" Click="BExit_Click"/>
-        <RadioButton x:Name="rbMinutes100" Content="100 minut do wszystkich 20zł" HorizontalAlignment="Left" Margin="86,165,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Button x:Name="BExit" Content="Wyjdź" HorizontalAlignment="Left" Margin="280,292,0,0" VerticalAlignment="Top" Height="30" Width="102" Click="BExit_Click"/>
+        <RadioButton x:Name="rbMinutes100" Content="100 minut do wszystkich - 20zł" HorizontalAlignment="Left" Margin="86,165,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <RadioButton x:Name="rbSoloM" Content="Formuła solo M - 25zł" HorizontalAlignment="Left" Margin="86,0,0,0" VerticalAlignment="Center" FontSize="14" Checked="rbSoloM_Checked"/>
 
     </Grid>
 </Window>

@@ -25,42 +25,42 @@ namespace Projekt_PO_w61933
             InitializeComponent();
         }
         public int id;
+        private void checkBalance(Package package, string balance)
+        {
+            if (package.addPackage(balance))
+            {
+                MessageBox.Show("Poprawnie dodano pakiet");
+                this.DialogResult = true;
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.showUserInterface(id);
+            }
+            else
+            {
+                MessageBox.Show("Za mało środków na koncie");
+            }
+        }
         private void bConfrim_Click(object sender, RoutedEventArgs e)
         {
             if (rbInterenet5GB.IsChecked==true)
             {
                 string balance = File.ReadLines("AccountBalance.txt").Skip(id - 1).Take(1).First();
                 Package package = Package.internet5GB;
-                if (package.addPackage(balance))
-                {
-                    MessageBox.Show("Poprawnie dodano pakiet");
-                    this.DialogResult = true;
-                    MainWindow mainWindow = new MainWindow();
-                    mainWindow.showUserInterface(id);
-                }
-                else
-                {
-                    MessageBox.Show("Za mało środków na koncie");
-                }
+                checkBalance(package, balance);
                 
             }
             else if(rbMinutes100.IsChecked == true)
             {
                 string balance = File.ReadLines("AccountBalance.txt").Skip(id - 1).Take(1).First();
                 Package package = Package.minutes100;
-                if (package.addPackage(balance))
-                {
-                    MessageBox.Show("Poprawnie dodano pakiet");
-                    this.DialogResult = true;
-                    MainWindow mainWindow = new MainWindow();
-                    mainWindow.showUserInterface(id);
-                }
-                else
-                {
-                    MessageBox.Show("Za mało środków na koncie");
-                }
+                checkBalance(package, balance);
             }
-            
+            else if (rbSoloM.IsChecked == true)
+            {
+                string balance = File.ReadLines("AccountBalance.txt").Skip(id - 1).Take(1).First();
+                Package package = Package.soloM;
+                checkBalance(package, balance);
+            }
+
         }
 
         private void BExit_Click(object sender, RoutedEventArgs e)
@@ -68,6 +68,11 @@ namespace Projekt_PO_w61933
             this.DialogResult = true;
             MainWindow mainWindow = new MainWindow();
             mainWindow.showUserInterface(id);
+        }
+
+        private void rbSoloM_Checked(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Nielimitowane minuty do wszyskich, 10GB internetu w Polsce i 3GB w UE");
         }
     }
 }

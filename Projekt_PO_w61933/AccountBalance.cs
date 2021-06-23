@@ -59,6 +59,7 @@ namespace Projekt_PO_w61933
                 int minutes = Convert.ToInt32(this.minutes);
                 int tMinutes = Convert.ToInt32(transferMinutes);
                 minutes += tMinutes;
+                this.minutes = minutes.ToString();
                 string client = File.ReadLines("AccountBalance.txt").Skip(this.id - 1).Take(1).First();
                 string oldMinutesText = client;
                 client = client.Replace("Minutes: " + oldMinutes, "Minutes: " + this.minutes);

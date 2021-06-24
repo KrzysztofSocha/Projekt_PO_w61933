@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,7 @@ namespace Projekt_PO_w61933
 
         private void bTopUpAccount_Click(object sender, RoutedEventArgs e)
         {
+            //otwarcie okna odpowiedzialnego za doładowania
             this.DialogResult = true;
             var dialog = new PayWindow();
             dialog.id = this.id;
@@ -35,8 +37,33 @@ namespace Projekt_PO_w61933
 
         private void bBuyPackage_Click(object sender, RoutedEventArgs e)
         {
+            //otwarcie okna odpowiedzialnego za zakup pakietów
             this.DialogResult = true;
             var dialog = new choicePackage();
+            dialog.id = this.id;
+            dialog.ShowDialog();
+        }
+
+        private void bLogout_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = true;
+            
+            Application.Current.MainWindow.Show();
+            
+
+        }
+
+        private void bShowPackages_Click(object sender, RoutedEventArgs e)
+        {
+            string clientPackages = File.ReadLines("Packages.txt").Skip(id - 1).Take(1).First();
+            string[] wordsClientPackages = clientPackages.Split(';');
+            wordsClientPackages[0] = null;
+            
+            this.DialogResult = true;
+            var dialog = new ShowPackage();
+            
+            dialog.lbAllPackage.ItemsSource = wordsClientPackages;
+            
             dialog.id = this.id;
             dialog.ShowDialog();
         }

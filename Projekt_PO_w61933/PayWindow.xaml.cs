@@ -28,6 +28,9 @@ namespace Projekt_PO_w61933
         bool bankCheck = false;
         private void button_Click(object sender, RoutedEventArgs e)
         {
+            //sprawdzenie czy użytkownik poprawnie wpisał kwote doładowania
+            //sprawdzenie czy komórka jest uzpełniona, czy wrtość jest większa od 0 //
+            //oraz czy możliwa jest konwersja na typ liczbowy
             if(tbAmount.Text==""|| Convert.ToDouble(tbAmount.Text) <= 0 || !double.TryParse(tbAmount.Text, out double result))
             {
                 MessageBox.Show("Wprowadź poprawną kwotę doładowania");
@@ -35,6 +38,7 @@ namespace Projekt_PO_w61933
             }
             else
             {
+                //jeśli wybrano mętodę płatności blik
                 if(rbBlik.IsChecked == true && tbBlik.Text.Length == 6 && double.TryParse(tbBlik.Text, out double result1))
                 {
                     MessageBox.Show("Poprawnie doładowano konto");
@@ -44,11 +48,14 @@ namespace Projekt_PO_w61933
                     this.DialogResult = true;
                     MainWindow mainWindow = new MainWindow();
                     mainWindow.showUserInterface(id);
+                    mainWindow.Close();
                 }
+                //komunikat w przypadku błędnie wpisanego kodu blik
                 else if(rbBlik.IsChecked == true && (tbBlik.Text.Length != 6 || !double.TryParse(tbBlik.Text, out double result2)))
                 {
                     MessageBox.Show("Niepoprawny kod Blik");
                 }
+                //jęsliw wybrano metodę płatności przelew oraz wybrano bank
                 else if (rbTransfer.IsChecked == true && bankCheck == true )
                 {
                     
@@ -61,6 +68,7 @@ namespace Projekt_PO_w61933
                     this.DialogResult = true;
                     MainWindow mainWindow = new MainWindow();
                     mainWindow.showUserInterface(id);
+                    mainWindow.Close();
                 }
                 else
                 {
@@ -68,7 +76,7 @@ namespace Projekt_PO_w61933
                 }
             }
         }
-
+        //Wyświetlenie składowych odpowiedzialnych za płatność metodą blik
         private void rbBlik_Checked(object sender, RoutedEventArgs e)
         {
             lBlik.Visibility = Visibility.Visible;
@@ -76,7 +84,7 @@ namespace Projekt_PO_w61933
             label1.Visibility = Visibility.Hidden;
             spBanks.Visibility = Visibility.Hidden;
         }
-
+        //Wyświetlenie składowych odpowiedzialnych za płatność metodą przelew
         private void rbTransfer_Checked(object sender, RoutedEventArgs e)
         {
             lBlik.Visibility = Visibility.Hidden;
@@ -84,7 +92,7 @@ namespace Projekt_PO_w61933
             label1.Visibility = Visibility.Hidden;
             spBanks.Visibility = Visibility.Visible;
         }
-
+        //odpowiedź na wybranie banku
         private void radioButton_Checked(object sender, RoutedEventArgs e)
         {
             label1.Visibility = Visibility.Visible;
@@ -134,6 +142,7 @@ namespace Projekt_PO_w61933
             this.DialogResult = true;
             MainWindow mainWindow = new MainWindow();
             mainWindow.showUserInterface(id);
+            mainWindow.Close();
         }
     }
 }

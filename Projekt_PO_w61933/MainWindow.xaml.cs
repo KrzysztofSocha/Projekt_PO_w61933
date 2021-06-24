@@ -27,20 +27,19 @@ namespace Projekt_PO_w61933
         }
         public void showUserInterface( int count)
         {
-            string client = File.ReadLines("Client.txt").Skip(count - 1).Take(1).First();
-            
-           
+            //pobranie danych klienta
+            string client = File.ReadLines("Client.txt").Skip(count - 1).Take(1).First();                       
             string[] wordsClient = client.Split(' ');
-            string balance = File.ReadLines("AccountBalance.txt").Skip(count - 1).Take(1).First();
-            
+            //pobranie stanu konta 
+            string balance = File.ReadLines("AccountBalance.txt").Skip(count - 1).Take(1).First();            
             string[] wordsBalance = balance.Split(' ');
 
 
             
-
+            
             var dialog = new UserInterface();
 
-
+            //przypisanie danych użytkownika oraz stanu konta do wyświetlenia
             dialog.id = count;
             dialog.lWelcome.Content = "Witaj " + wordsClient[3] + ",";
             dialog.lNumber.Content = "Twój numer " + wordsClient[7];
@@ -63,6 +62,7 @@ namespace Projekt_PO_w61933
                 while((line = sr.ReadLine()) != null)
                 {
                     count++;
+                    //sprawdzenie czy istnieją takie dane do logowania 
                     if(line == fullLogin)
                     {
                         MessageBox.Show("Poprawnie zalogowano");
@@ -70,6 +70,10 @@ namespace Projekt_PO_w61933
                         correctLogin = true;
                         sr.Close();
                         this.Hide();
+                        this.tbUserName.Text = "";
+                        this.pbPassword.Password = "";
+
+                        //otwarcie interfejsu użytkownika
                         showUserInterface(count);
                                             
                                                
@@ -92,6 +96,7 @@ namespace Projekt_PO_w61933
 
         private void bRegister_Click(object sender, RoutedEventArgs e)
         {
+            //otworzenie okna rejestracji
             var dialog = new Rejestracja();
             dialog.ShowDialog();
             

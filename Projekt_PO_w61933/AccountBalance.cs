@@ -7,25 +7,31 @@ using System.Threading.Tasks;
 
 namespace Projekt_PO_w61933
 {
-    class AccountBalance
+    public class AccountBalance
     {
         protected int internet;
         public double balance;
         protected int internetEU;
         protected string minutes;
-        protected int id;
+        public int id;
         public void changeBalance(double amount)
         {
+            //przypisanie aktualnego stanu konta do zmiennej tymczasowej
             double oldBalance = this.balance;
-           
+            
             this.balance += amount;
             
-            
+            //pobranie rekordu z pliku klienta
             string client = File.ReadLines("AccountBalance.txt").Skip(this.id - 1).Take(1).First();
+            //przypisanie rekordu do zmiennej tymczasowej
             string oldBalanceText = client;
+            //zamienienie wartości starych na nowe w rekordzie
             client = client.Replace("Balance: " + oldBalance, "Balance: " + this.balance);
+            //zapisanie do zmiennej całej zawartości pliku
             string balancetxt = File.ReadAllText("AccountBalance.txt");
+            //wymiana rekordu starego na nowy
             balancetxt = balancetxt.Replace(oldBalanceText, client);
+            //zapisanie całego pliku na nowo
             File.WriteAllText("AccountBalance.txt", balancetxt);
         }
         public void topUpInternet(int transferInternet)
@@ -52,7 +58,7 @@ namespace Projekt_PO_w61933
         }
         public void topUpMinutes(string transferMinutes)
         {
-            //sprawdzenie czy liczbowe minuty czy nieskończone 
+            //sprawdzenie czy liczbowe minuty czy nielimitowane 
             if(int.TryParse(transferMinutes, out int result)&& int.TryParse(this.minutes, out int result1))
             {
                 string oldMinutes = this.minutes;

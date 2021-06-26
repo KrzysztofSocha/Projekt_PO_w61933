@@ -31,7 +31,7 @@ namespace Projekt_PO_w61933
             {
                 StreamWriter sw;
                 sw = new StreamWriter("Questions.txt", true);
-                sw.WriteLine(tbQuestion.Text + " : " + tbAnswear.Text);
+                sw.WriteLine(tbQuestion.Text + ":" + tbAnswear.Text);
                 sw.Close();
                 this.DialogResult = true;
             }

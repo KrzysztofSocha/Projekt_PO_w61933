@@ -16,9 +16,10 @@
         <PasswordBox x:Name="pbPassword" HorizontalAlignment="Left" Margin="189,172,0,0" VerticalAlignment="Top" Width="136" Height="27" Grid.Column="2"/>
         <Label x:Name="lUserName" Content="Nazwa użytkownika" HorizontalAlignment="Left" Margin="48,129,0,0" VerticalAlignment="Top" Grid.Column="2"/>
         <Label x:Name="lPassword" Content="Hasło" HorizontalAlignment="Left" Margin="65,181,0,0" VerticalAlignment="Top" Grid.Column="2"/>
-        <Button x:Name="bLogin" Content="Zaloguj" HorizontalAlignment="Left" Margin="167,269,0,0" VerticalAlignment="Top" Grid.Column="2" Click="bLogin_Click"/>
-        <Button x:Name="bRegister" Content="Zarejestruj się" HorizontalAlignment="Left" Margin="274,269,0,0" VerticalAlignment="Top" Grid.Column="2" Click="bRegister_Click"/>
+        <Button x:Name="bLogin" Content="Zaloguj" HorizontalAlignment="Left" Margin="241,240,0,0" VerticalAlignment="Top" Grid.Column="2" Click="bLogin_Click" Width="84" Height="27"/>
+        <Button x:Name="bRegister" Content="Zarejestruj się" HorizontalAlignment="Left" Margin="241,286,0,0" VerticalAlignment="Top" Grid.Column="2" Click="bRegister_Click" Height="27" Width="84"/>
         <Label x:Name="label" Content="Wprowadź dane do logowania:" Grid.Column="2" HorizontalAlignment="Left" Margin="48,67,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Button x:Name="bRemindPassword" Content="Zapomniałeś hasła?" Grid.Column="2" HorizontalAlignment="Left" Margin="47,286,0,0" VerticalAlignment="Top" Height="27" Width="115" Click="bRemindPassword_Click"/>
 
     </Grid>
 </Window>

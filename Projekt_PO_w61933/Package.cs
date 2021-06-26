@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Projekt_PO_w61933
 {
-    class Package: AccountBalance
+    public class Package: AccountBalance
     {
         protected double price = 0;
-        protected string namePackage;
+        public string name;
         //utworzenie obiektów statycznych z możliwością tylko odczytu,
         // każdy pakiet musi być ręcznie dodany przez administratora
         public static readonly Package internet5GB = new Package(15.0, "internet 5GB", "0", 5, 0);
@@ -22,16 +22,16 @@ namespace Projekt_PO_w61933
         public static readonly Package internet1GBEU = new Package(15.0, "internet 1GB EU", "0", 0, 1);
         public static readonly Package internet5GBEU = new Package(40.0, "internet 5GB EU", "0", 0, 5);
         
-        private void addPackageToFile(int id)
+        private void addPackageToFile(int id, string fileName)
         {
-            string packageState = File.ReadLines("Packages.txt").Skip(id - 1).Take(1).First();
+            string packageState = File.ReadLines(fileName).Skip(id - 1).Take(1).First();
             string oldPackageState = packageState;
-            packageState += this.namePackage+";" ;
-            string packagestxt = File.ReadAllText("Packages.txt");
+            packageState += this.name+";" ;
+            string packagestxt = File.ReadAllText(fileName);
             //wymiana rekordu starego na nowy
             packagestxt = packagestxt.Replace(oldPackageState, packageState);
             //zapisanie całego pliku na nowo
-            File.WriteAllText("Packages.txt", packagestxt);
+            File.WriteAllText(fileName, packagestxt);
         }
         //funkcja boolowska opwiedzialna za zmiane stanu konta po dodaniu nowego pakietu
         //zwraca true kiedy środki na koncie pozwalają na dodanie pakietu, w przeciwnym razie zwraca false
@@ -68,7 +68,8 @@ namespace Projekt_PO_w61933
                 {
                     accountBalance.topUpInternetEU(this.internetEU);
                 }
-                addPackageToFile(accountBalance.id);
+                addPackageToFile(accountBalance.id,"Packages.txt");
+                OperationsUser operations = new OperationsUser("Pakiet:", this.name+" Pobrano: "+this.price*-1+"PLN", accountBalance.id);
                 return true;
             }
             else
@@ -76,15 +77,15 @@ namespace Projekt_PO_w61933
                 return false;
             }
         }
+
         
-        //dodanie usuwania pakietów
-        
+
         
         //konstruktor klasy Package z prywatnym dostępem
-        private Package(double price, string namePackage, string transferMinutes, int transferInternet, int transferInternetEU  )
+        private Package(double price, string name, string transferMinutes, int transferInternet, int transferInternetEU  )
         {
             this.price = price;
-            this.namePackage = namePackage;
+            this.name = name;
             this.minutes = transferMinutes;
             this.internet = transferInternet;
             this.internetEU = transferInternetEU;

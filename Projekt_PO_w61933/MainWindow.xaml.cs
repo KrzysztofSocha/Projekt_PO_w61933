@@ -101,5 +101,49 @@ namespace Projekt_PO_w61933
             dialog.ShowDialog();
             
         }
+
+        private void bRemindPassword_Click(object sender, RoutedEventArgs e)
+        {
+            StreamReader sr = File.OpenText("login.txt");
+            string line;
+            int count = 0;
+            bool checkUserName = false;
+            if (tbUserName.Text == "")
+            {
+                MessageBox.Show("Aby przejść do okna przypomnienia hasła wpisz nazwę użytkownika");
+            }
+            else
+            {
+                while ((line = sr.ReadLine()) != null)
+                {
+                    count++;
+
+                    if (line.Substring(0, line.IndexOf(" ")) == tbUserName.Text)
+                    {
+                        
+                        checkUserName = true;
+                        
+                        this.Hide();
+                        var dialog = new PasswordRemindWindow();
+                        dialog.id = count;
+                        string questions = File.ReadLines("Questions.txt").Skip(count - 1).Take(1).First();
+                        string[] qa = questions.Split(':');
+                        dialog.lQuestion.Content = qa[0];
+                        dialog.answear = qa[1];
+                        sr.Close();
+                        dialog.ShowDialog();
+                        break;
+
+                    }
+
+                }
+                
+                if (!checkUserName)
+                {
+                    sr.Close();
+                    MessageBox.Show("Nie istnieje użytkownik o podanej nazwie");
+                }
+            }
+        }
     }
 }

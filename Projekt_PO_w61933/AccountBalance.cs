@@ -33,6 +33,11 @@ namespace Projekt_PO_w61933
             balancetxt = balancetxt.Replace(oldBalanceText, client);
             //zapisanie całego pliku na nowo
             File.WriteAllText("AccountBalance.txt", balancetxt);
+            if(amount > 0)
+            {
+                OperationsUser operations = new OperationsUser("Doładowanie:", amount + " PLN", this.id);
+            }
+            
         }
         public void topUpInternet(int transferInternet)
         {

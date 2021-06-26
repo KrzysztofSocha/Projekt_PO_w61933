@@ -110,7 +110,10 @@ namespace Projekt_PO_w61933
                             Client client= new Client(tbUserName.Text, pbNewPassword.Password,id, tbName.Text,tbSurname.Text,tbPhone.Text,tbEmail.Text);
                             StreamWriter sw;
                             sw = new StreamWriter("Packages.txt", true);
-                            sw.WriteLine("ID: " + count+1+";");
+                            sw.WriteLine("ID: " + (count+1)+";");
+                            sw.Close();
+                            sw = new StreamWriter("Operations.txt", true);
+                            sw.WriteLine("ID: " + (count + 1) + ";");
                             sw.Close();
                             AccountBalance accountBalance = new AccountBalance(count+1);
                             this.DialogResult = true;

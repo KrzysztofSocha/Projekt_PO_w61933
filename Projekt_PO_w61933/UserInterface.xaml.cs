@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -64,6 +65,25 @@ namespace Projekt_PO_w61933
             
             dialog.lbAllPackage.ItemsSource = wordsClientPackages;
             
+            dialog.id = this.id;
+            dialog.ShowDialog();
+        }
+
+        private void bOperations_Click(object sender, RoutedEventArgs e)
+        {
+            string clientOperations = File.ReadLines("Operations.txt").Skip(id - 1).Take(1).First();
+            string[] wordsClientOperations = clientOperations.Split(';');
+           
+
+            this.DialogResult = true;
+            var dialog = new OperationsWindow();
+            Stack clientOperationsStack = new Stack();
+            for (int i=1; i<wordsClientOperations.Length; i++)
+            {
+                clientOperationsStack.Push(wordsClientOperations[i]);
+            }
+            dialog.lbOperations.ItemsSource = clientOperationsStack;
+
             dialog.id = this.id;
             dialog.ShowDialog();
         }

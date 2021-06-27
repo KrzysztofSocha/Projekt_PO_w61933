@@ -25,9 +25,21 @@ namespace Projekt_PO_w61933
             login = login.Replace(this.userName+" " + oldPassword, this.userName + " " + newPassword);
             string logintxt = File.ReadAllText("Login.txt");
             logintxt = logintxt.Replace(oldLoginText, login);
-            File.WriteAllText("Login.txt", logintxt);//błąd
+            File.WriteAllText("Login.txt", logintxt);
+            OperationsUser operations = new OperationsUser("Zmiana","hasła",id );
 
 
+        }
+        public bool checkPassword(string password)
+        {
+            if (this.password == password)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         public User()
         {

@@ -1,0 +1,7 @@
+ID: 1;
+ID: 2;Doładowanie: 20 PLN;Pakiet: internet 2GB Pobrano: -6PLN;Wyłączenie pakietu: internet 2GB;Pakiet: Formuła Solo S Pobrano: -20PLN;Zmiana hasła;
+ID: 3;
+ID: 4;
+ID: 5;Doładowanie: 25 PLN;Pakiet: Formuła Solo M Pobrano: -25PLN;
+ID: 6;Doładowanie: 12 PLN;Pakiet: internet 2GB Pobrano: -6PLN;
+ID: 7;Zmiana hasła;Doładowanie: 25 PLN;Pakiet: Formuła Solo M Pobrano: -25PLN;Doładowanie: 10 PLN;Pakiet: internet 2GB Pobrano: -6PLN;Wyłączenie pakietu: internet 2GB;Zmiana hasła;Doładowanie: 14 PLN;Doładowanie: 5 PLN;Pakiet: internet 1GB EU Pobrano: -15PLN;Wyłączenie pakietu: internet 1GB EU;

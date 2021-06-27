@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Twoje operacje na koncie" Height="450" Width="593">
     <Grid>
-        <ListBox x:Name="lbOperations" Margin="55,16,267,16" FontSize="14"/>
+        <ListBox x:Name="lbOperations" Margin="55,16,206,16" FontSize="14"/>
         <Button x:Name="bExit" Content="Powrót" HorizontalAlignment="Left" Margin="446,251,0,0" VerticalAlignment="Top" Width="95" Height="31" Click="bExit_Click"/>
 
     </Grid>

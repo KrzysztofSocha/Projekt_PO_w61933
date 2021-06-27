@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt_PO_w61933"
         mc:Ignorable="d"
-        Title="Panel wyboru pakietu" Height="450" Width="800">
+        Title="Panel zakupu pakietu" Height="450" Width="800">
     <Grid>
         <Label x:Name="label" Content="Wybierz pakiet" HorizontalAlignment="Left" Margin="53,42,0,0" VerticalAlignment="Top" Width="217" FontSize="20"/>
         <RadioButton x:Name="rbInternet5GB" Content="Internet 5GB - 15zł" HorizontalAlignment="Left" Margin="382,124,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Button x:Name="bConfrim" Content="Zatwierdź wybór" HorizontalAlignment="Left" Margin="86,333,0,0" VerticalAlignment="Top" Height="30" Width="94" Click="bConfrim_Click"/>
+        <Button x:Name="bConfrim" Content="Zatwierdź wybór" HorizontalAlignment="Left" Margin="86,333,0,0" VerticalAlignment="Top" Height="30" Width="94" Click="bConfirm_Click"/>
         <Button x:Name="BExit" Content="Wyjdź" HorizontalAlignment="Left" Margin="469,328,0,0" VerticalAlignment="Top" Height="30" Width="102" Click="BExit_Click"/>
         <RadioButton x:Name="rbMinutes100" Content="100 minut do wszystkich - 20zł" HorizontalAlignment="Left" Margin="86,165,0,0" VerticalAlignment="Top" FontSize="14"/>
         <RadioButton x:Name="rbSoloM" Content="Formuła solo M - 25zł" HorizontalAlignment="Left" Margin="382,0,0,0" VerticalAlignment="Center" FontSize="14" Checked="rbSoloM_Checked"/>
@@ -18,6 +18,7 @@
         <RadioButton x:Name="rbSoloS" Content="Formuła Solo S - 20zł" HorizontalAlignment="Left" Margin="86,0,0,0" VerticalAlignment="Center" FontSize="14" Checked="rbSoloS_Checked"/>
         <RadioButton x:Name="rbInternet1GBEU" Content="Internet 1GB w EU -  15zł" HorizontalAlignment="Left" Margin="86,252,0,0" VerticalAlignment="Top" FontSize="14"/>
         <RadioButton x:Name="rbInternet5GBEU" Content="Internet 5GB w EU -  40zł" HorizontalAlignment="Left" Margin="382,252,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <Label x:Name="lBalance" Content="Dostępne środki: " HorizontalAlignment="Left" Margin="382,47,0,0" VerticalAlignment="Top" FontSize="16"/>
 
     </Grid>
 </Window>

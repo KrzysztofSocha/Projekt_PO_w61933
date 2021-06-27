@@ -1,0 +1,7 @@
+ID: 1 Balance: 164 Internet: 30 InternetEU: 11 Minutes: nielimitowane
+ID: 2 Balance: 13 Internet: 157 InternetEU: 8 Minutes: nielimitowane
+ID: 3 Balance: 25 Internet: 0 InternetEU: 0 Minutes: 0
+ID: 4 Balance: 0 Internet: 0 InternetEU: 0 Minutes: 0
+ID: 5 Balance: 0 Internet: 10 InternetEU: 3 Minutes: nielimitowane
+ID: 6 Balance: 6 Internet: 2 InternetEU: 0 Minutes: 0
+ID: 7 Balance: 8 Internet: 12 InternetEU: 4 Minutes: nielimitowane

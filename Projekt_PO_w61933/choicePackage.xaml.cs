@@ -41,7 +41,7 @@ namespace Projekt_PO_w61933
                 MessageBox.Show("Za mało środków na koncie");
             }
         }
-        private void bConfrim_Click(object sender, RoutedEventArgs e)
+        private void bConfirm_Click(object sender, RoutedEventArgs e)
         {
             if (rbInternet2GB.IsChecked == true)
             {

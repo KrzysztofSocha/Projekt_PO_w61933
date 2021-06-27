@@ -1,0 +1,7 @@
+ID: 1;Formuła Solo M;
+ID: 2;internet 5GB;100 Minut;Formuła Solo S;
+ID: 3;
+ID: 4;
+ID: 5;Formuła Solo M;
+ID: 6;internet 2GB;
+ID: 7;Formuła Solo M;

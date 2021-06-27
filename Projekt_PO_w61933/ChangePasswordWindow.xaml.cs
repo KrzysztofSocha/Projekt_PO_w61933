@@ -16,13 +16,12 @@ using System.Windows.Shapes;
 namespace Projekt_PO_w61933
 {
     /// <summary>
-    /// Interaction logic for PasswordRemindWindow.xaml
+    /// Interaction logic for ChangePasswordWindow.xaml
     /// </summary>
-    public partial class PasswordRemindWindow : Window
+    public partial class ChangePasswordWindow : Window
     {
         public int id;
-        public string answear;
-        public PasswordRemindWindow()
+        public ChangePasswordWindow()
         {
             InitializeComponent();
         }
@@ -30,17 +29,20 @@ namespace Projekt_PO_w61933
         private void bCancel_Click(object sender, RoutedEventArgs e)
         {
             this.DialogResult = true;
-            Application.Current.MainWindow.Show();
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.showUserInterface(id);
+            mainWindow.Close();
         }
 
         private void bConfirm_Click(object sender, RoutedEventArgs e)
         {
-            if (tbAnswear.Text == "")
+            string login = File.ReadLines("Login.txt").Skip(id - 1).Take(1).First();
+
+            User user = new User(login);
+            if (user.checkPassword(pbPassword.Password))
             {
-                MessageBox.Show("Uzupełnij dane");
-            }
-            else if(tbAnswear.Text == answear)
-            {
+
+
                 if (pbNewPassword.Password == "" || pbCheckNewPassword.Password == "")
                 {
                     MessageBox.Show("Uzupełnij dane do ponownego logowania");
@@ -49,13 +51,13 @@ namespace Projekt_PO_w61933
                 {
                     if (pbCheckNewPassword.Password == pbNewPassword.Password)
                     {
-                        string login = File.ReadLines("Login.txt").Skip(id - 1).Take(1).First();
-                        
-                        User user = new User(login);
+
                         user.changePassword(pbNewPassword.Password, id);
                         MessageBox.Show("Pomyślnie zmieniono hasło");
                         this.DialogResult = true;
-                        Application.Current.MainWindow.Show();
+                        MainWindow mainWindow = new MainWindow();
+                        mainWindow.showUserInterface(id);
+                        mainWindow.Close();
 
                     }
                     else
@@ -66,7 +68,7 @@ namespace Projekt_PO_w61933
             }
             else
             {
-                MessageBox.Show("Niepoprawna odpowiedź");
+                MessageBox.Show("Niepoprawne hasło");
             }
         }
     }

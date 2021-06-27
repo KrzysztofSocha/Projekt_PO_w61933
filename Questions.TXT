@@ -1,0 +1,7 @@
+Imię najstarszego syna :Stefan
+Pierwszy samochód :scenik
+Pierwszy samochód :czerwony maluch
+Ulubiony kolor :zielony
+Ulubiona marka samochodu :Audi
+Ulubione jedzenie :pierogi
+Ulubiona marka samochodu:Mercedes

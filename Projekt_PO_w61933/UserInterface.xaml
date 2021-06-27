@@ -22,6 +22,7 @@
         <Button x:Name="bLogout" Content="Wyloguj" HorizontalAlignment="Left" Margin="383,371,0,0" VerticalAlignment="Top" Width="101" Height="31" Click="bLogout_Click"/>
         <Button x:Name="bShowPackages" Content="Aktywne pakiety" HorizontalAlignment="Left" Margin="383,233,0,0" VerticalAlignment="Top" Width="101" Height="31" Click="bShowPackages_Click"/>
         <Button x:Name="bOperations" Content="Twoje operacje" HorizontalAlignment="Left" Margin="385,306,0,0" VerticalAlignment="Top" Width="100" Height="31" Click="bOperations_Click"/>
+        <Button x:Name="button" Content="Zmień hasło" HorizontalAlignment="Center" Margin="0,371,0,0" VerticalAlignment="Top" Width="100" Height="31" Click="button_Click"/>
 
     </Grid>
 </Window>

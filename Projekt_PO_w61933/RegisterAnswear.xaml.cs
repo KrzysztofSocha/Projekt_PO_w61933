@@ -38,9 +38,7 @@ namespace Projekt_PO_w61933
             else
             {
                 MessageBox.Show("Uzuełnij dane");
-                this.DialogResult = true;
-                var dialog = new RegisterAnswear();
-                dialog.ShowDialog();
+                
             }
         }
     }

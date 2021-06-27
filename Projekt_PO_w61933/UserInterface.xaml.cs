@@ -42,6 +42,7 @@ namespace Projekt_PO_w61933
             this.DialogResult = true;
             var dialog = new choicePackage();
             dialog.id = this.id;
+            dialog.lBalance.Content += Convert.ToString(this.lBalance.Content);
             dialog.ShowDialog();
         }
 
@@ -84,6 +85,14 @@ namespace Projekt_PO_w61933
             }
             dialog.lbOperations.ItemsSource = clientOperationsStack;
 
+            dialog.id = this.id;
+            dialog.ShowDialog();
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = true;
+            var dialog = new ChangePasswordWindow();
             dialog.id = this.id;
             dialog.ShowDialog();
         }
